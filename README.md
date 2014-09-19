@@ -291,6 +291,7 @@ The last thing this function needs is the ability to move the actual list item. 
 We can also move the items from 'inProgress' to 'archived' with a similar function: 
 
 *app.js*
+
     $(document).on('click', '#inProgress', function (e) {
         e.preventDefault();
         var task = this;
