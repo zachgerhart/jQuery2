@@ -332,7 +332,6 @@ The final step for the todo list is to save our list items on local storage. Loc
 
 Jake is going to lecture about this
 
-<small>it is 3:30am. Goodnightcd</small>
 
 
 
