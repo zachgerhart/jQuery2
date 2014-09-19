@@ -124,7 +124,6 @@ Now there are a few things we should add to this function to make it work correc
 		if(task) {
 			task = new Task(task);
 			listo.push(task);
-			save();
 
 			$('#newItemInput').val('');
 			$('#newList').append('<a href="#finish" class="" id="item"><li class="list-group-item">' + task.task + '<span class="arrow pull-right"><i class="glyphicon glyphicon-arrow-right"></span></li></a>');
@@ -150,7 +149,6 @@ Then let's add the fade toggle so that our New button will hide and show the inp
 		if(task) {
 			task = new Task(task);
 			listo.push(task);
-			save();
 
 			$('#newItemInput').val('');
 
