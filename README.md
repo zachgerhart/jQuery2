@@ -17,7 +17,7 @@ First, fork and clone this repo, so that we can access this README during our de
 
 After that, let's create a folder called 'app'. This is where we will store the guts of our app. Inside the app folder let's make a folder called 'scripts'. This is where we will store our JavaScript. 
 
-Inside the js folder we will create our main javascript named something awesome like 'main.js'. 
+Inside the js folder we will create our main javascript named something awesome like 'app.js'. 
 
 Then inside the app folder we will create a folder called 'Styles', this is where we will store our CSS files. Inside the 'Styles' folder let's make a file called main.css so that we have a place to style things. 
 
@@ -25,7 +25,7 @@ Now that we've made our basic files, we want to get them all hooked together in 
 
 *Remember: a lot of times we get errors in the beginning of a project is because the files are not properly linked. *
 
-*Remember: your browser will read your index.html from top-to-bottom, left-to-right. This means if you put your jquery under your main.js file you will end up with an error.*
+*Remember: your browser will read your index.html from top-to-bottom, left-to-right. This means if you put your jquery under your app.js file you will end up with an error.*
 
 
 #Step 2
@@ -39,7 +39,7 @@ The first thing we want to do is go into our app.js file and create our document
 
 	$(document).ready(function() {//ALL CODE GOES IN HERE});
 
-This essentially allows us to load our app when the document loads. It's a weird jQuery thing, but it's what we do. Remember, all of the code in our main.js will go within the {} of the above function. 
+This essentially allows us to load our app when the document loads. It's a weird jQuery thing, but it's what we do. Remember, all of the code in our app.js will go within the {} of the above function. 
 
 ###Basic Architecture
 
