@@ -203,7 +203,7 @@ Finally let's make it so that we can open and close the new task form with the n
     });
 
 
-#Task Progression HTML
+#Step 3 Task Progression HTML
 ###Scaffold the lists
 
 Before we make it possible to move our tasks from in progress to archived, we want create a space for them to exist in our HTML. We will do this in a very minimalist way in order to get things in a way they make sense.
@@ -236,7 +236,7 @@ Let's also go into our CSS file and create a panel  class
 
 
 
-#Task Progression jQuery
+#Step 4 Task Progression jQuery
 ###Starting, Finishing, and Deleting Tasks
 
 The next thing we want is to create a way for our tasks to be moved from **new**, to **in progress**, to **archived**, and eventually deleted.
@@ -326,7 +326,7 @@ Think of our archived ID like a soft delete. We could make it disappear to the u
 Perhaps it's not so important with a todolist, but it's good to start thinking about. 
 
 
-#Local Storage
+#Step 4 Local Storage
 ###Our Browsers Brain
 
 The final step for the todo list is to save our list items on local storage. Local storage allows our app to access the browsers built in storage. We can save a limited amount of data in cool ways. This means if we close our browser our list items will still be there! 	
