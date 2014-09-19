@@ -69,7 +69,7 @@ Let's hop over to our index.html and create a space for them to type in their li
 
 *index.html*
 	
-	    <form>
+	    <form id="newTaskForm">
 	    	<label>New Item</label>
 	        <input id="newItemInput" placeholder="new task">
 	        <button id="saveNewItem">Save</button>
@@ -126,7 +126,7 @@ Now there are a few things we should add to this function to make it work correc
 			listo.push(task);
 
 			$('#newItemInput').val('');
-			$('#newList').append('<a href="#finish" class="" id="item"><li class="list-group-item">' + task.task + '<span class="arrow pull-right"><i class="glyphicon glyphicon-arrow-right"></span></li></a>');
+			$('#newList').append('<a href="#" class="" id="item"><li class="list-group-item">' + task.task + '<span class="arrow pull-right"><i class="glyphicon glyphicon-arrow-right"></span></li></a>');
 
 		}
 	};
@@ -172,7 +172,7 @@ Let's also create a div underneath all of that with the id of newList so that ou
 *index.html*
 
 	<div id="newList">
-
+		New List
 	</div>
 
 
