@@ -329,3 +329,10 @@ Perhaps it's not so important with a todolist, but it's good to start thinking a
 ###Our Browsers Brain
 
 The final step for the todo list is to save our list items on local storage. Local storage allows our app to access the browsers built in storage. We can save a limited amount of data in cool ways. This means if we close our browser our list items will still be there!
+
+Here are some resources: 
+
+http://diveintohtml5.info/storage.html
+https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+Good luck!
