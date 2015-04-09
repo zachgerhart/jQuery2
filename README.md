@@ -333,6 +333,7 @@ The final step for the todo list is to save our list items on local storage. Loc
 Here are some resources: 
 
 http://diveintohtml5.info/storage.html
+
 https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 
 Good luck!
