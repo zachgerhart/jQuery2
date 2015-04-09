@@ -325,22 +325,7 @@ Think of our archived ID like a soft delete. We could make it disappear to the u
 Perhaps it's not so important with a todolist, but it's good to start thinking about. 
 
 
-#Step 5 Local Storage
+# Black Diamond: Local Storage
 ###Our Browsers Brain
 
-The final step for the todo list is to save our list items on local storage. Local storage allows our app to access the browsers built in storage. We can save a limited amount of data in cool ways. This means if we close our browser our list items will still be there! 	
-
-Jake is going to lecture about this
-
-
-
-
-
-
-
-
-
-
-
-
-
+The final step for the todo list is to save our list items on local storage. Local storage allows our app to access the browsers built in storage. We can save a limited amount of data in cool ways. This means if we close our browser our list items will still be there!
