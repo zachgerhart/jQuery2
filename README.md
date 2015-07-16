@@ -237,6 +237,27 @@ Let's also go into our CSS file and create a panel  class
 #Step 4 Task Progression jQuery
 ###Starting, Finishing, and Deleting Tasks
 
+We need to include this function in our code. We will refer to this function in a minute, so for now, just include the function at the top of your app.
+
+*app.js*
+
+	var advanceTask = function(task) {
+	   var modified = task.innerText.trim()
+	   for (var i = 0; i < listo.length; i++) {
+	       if (listo[i].task === modified) {
+	           if (listo[i].id === 'new') {
+	               listo[i].id = 'inProgress';
+	           } else if (listo[i].id === 'inProgress') {
+	               listo[i].id = 'archived';
+	           } else {
+	               listo.splice(i, 1);
+	           }
+	           break;
+	       }
+	   }
+	   task.remove();
+	};
+
 The next thing we want is to create a way for our tasks to be moved from **new**, to **in progress**, to **archived**, and eventually deleted.
 
 If you remember, when we created our task constructor we took in the parameter for task, and we also created an ID that was automatically set to 'new'. In order to transition a task from 'new' to 'inProgress' all we really need to do is update the object's ID so that it says 'inProgress'.
@@ -254,7 +275,7 @@ From the beginning this function looks a little different than our other functio
 
 Remember, with jQuery the DOM doesn't really do anything. It's just there. That means all of the heavy lifting happens in jQuery. For this, and the next couple of functions, we will need to call the document so that as we create and manipulate html elements, the DOM realizes that they're there. 
 
-Another weird thing is e.preventDefault(); All this is saying is that we are removing the default properties of whatever HTML element we are clicking on. If we want an anchor tag so we can click on list items, but we don't want all of the baggage that comes with an anchor tag (like refreshing the page, or trying to take us to a new page) then this line of code will allow us to do that. 
+Another weird thing is e.preventDefault(); All this is saying is that we are preventing the default action for the event from being triggered. If we want an anchor tag so we can click on list items, but we don't want all of the baggage that comes with an anchor tag (like refreshing the page, or trying to take us to a new page) then this line of code will allow us to do that. 
 
 **It's similar to when we use normalize.css to remove default HTML styles.**
 
