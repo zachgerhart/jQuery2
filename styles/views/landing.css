@@ -1,0 +1,10 @@
+.main-wrapper {
+    background: url("../../img/big-bg.png")center no-repeat;
+    background-size: cover;
+
+}
+
+.main-page-header {
+    width: 100%;
+    background: #3E3C41;
+}
