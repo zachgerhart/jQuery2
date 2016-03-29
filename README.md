@@ -4,15 +4,16 @@ Listo with jQuery
 =================
 
 ##Objective
+
 Create an interactive "to-do" list with jQuery
 
-You will be turning your HTML/CSS assessment into a real life web application using jQuery named Listo.
 
-With Listo, users will be able to:
+With this to-do app, users will be able to:
 
-*Create new list items.
-*Move the items from 'New' to 'In Progress' to 'Archived' to deleted
-*Save list items to our browser's local storage so that it persists, even if we close the browser
+* Create new list items.
+
+* Move the items from 'New' to 'In Progress' to 'Archived' to deleted
+* Save list items to our browser's local storage so that it persists, even if we close the browser
 
 ##Step 1
 ###Our Environment
@@ -44,9 +45,11 @@ The first thing we want to do is go into our app.js file and create our document
 *app.js*
 
 ```javascript
+
 $(document).ready(function() {
   //ALL CODE GOES IN HERE
 });
+
 ```
 
 This allows us to initialize our jQuery code when the document loads. It might look a bit weird, but it's what we do when we're working with jQuery. Remember, all of the code in our app.js will go within the curly braces of the above function. 
@@ -105,7 +108,9 @@ Let's make a function to do that for us.
 var addTask = function(task) {};
 ```
 
-We don't want people to be able to create blank todo tasks, that would be a little frustrating. Let's put a conditional in the function so that it only runs if our task is there.
+We don't want people to be able to create blank
+
+todo tasks, that would be a little frustrating. Let's put a conditional in the function so that it only runs if our task is there.
 
 *app.js*
 ```javascript
