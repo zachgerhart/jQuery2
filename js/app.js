@@ -33,7 +33,8 @@ $(document).ready(function() {
 
             $('#newList').append(
                 '<a href="#finish" class="" id="item">' +
-                '<li class="list-group-item">' + task.task +
+                '<li class="list-group-item">' +
+                '<h3>' + task.task + '</h3>'+
                 '<span class="arrow pull-right">' +
                 '<i class="glyphicon glyphicon-arrow-right">' +
                 '</span>' +
