@@ -10,57 +10,42 @@
 </head>
 <body>
 <main class="main-wrapper">
-	<!--MAIN HEADER -->
 	<section>
 		<header class="main-page-header">
 			<div class="logo-container">
-				<img class="logo" src="./img/icons/check-box.png" alt="Check box image">
+			<img class="logo" src="./img/icons/check-box.png" alt="Check box image">
 			</div>
 			<div class="time-container">
-				<img class="time" src="./img/time.png" alt="countdown">
+			<img class="time" src="./img/time.png" alt="countdown">
 			</div>
 		</header>
 	</section>
 
-	<form id = "newTaskForm">
-		<label class="panel">Add Item to the To Do List!</label>
-		<div class="Input">
-			<button id="cancel">Cancel</button>
-		</div>
-	</form>
+	<section class="todo-main-container">
+		<section class="todo-container">
+			<div class="todo-img-container">
+			<img src="./img/icons/done-circle.png" alt="Todo Complete Icon">
+			</div>
+			<div class="todo-content">
+			<h2>DO more javascript practice problems</h2>
+			</div>
 
-	<div class="store">
+		</section>
+	</section>
 
-		<div id="newList"></div>
-		<div class="panel">
-			In Progress
-			<ul class="list-group" id="currentList"></ul>
-		</div>
-		<div>.</div>
-		<div class="panel">
-			Complete
-			<ul class="list-group" id="archivedList"></ul>
-		</div>
-	</div>
-
-	<!-- FORM -->
 	<section class="bottom-form-container ">
 		<h3 class="todo-form-title">New To Do </h3>
-		<form id = "newTaskForm" class="form-input-container">
-			<input id="newItemInput" class="todo-title-input form-input" type="text" placeholder="To-Do Title">
-			<button  id="saveNewItem" class="complete-todo-button">Add To Do</button>
-
-		</form>
+		<div class="form-input-container">
+			<input class="todo-title-input form-input" type="text" placeholder="To-Do Title">
+			<input class="todo-title-desc form-input" type="text"  placeholder="To-Do Description">
+		</div>
 	</section>
-	<!-- FOOTER -->
+
 	<footer class="todo-footer">
 		<img id="add-todo" class="add-todo-button show-add-todo" src="./img/icons/add-button.png" alt="add new todo">
+		<button id="complete-todo" class="complete-todo-button">Add To Do</button>
 	</footer>
-
-
-
-
-
+</main>
 
 
 	<!--Greensock for animations-->
@@ -70,6 +55,5 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/animation.js"></script>
 </body>
 </html>
