@@ -143,3 +143,11 @@ margin-top: 60px;
 .complete-todo-button:focus {
     outline: none;
 }
+
+#cancel {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 20px;
+    cursor: pointer;
+}
