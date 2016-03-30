@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //ALL CODE GOES IN HERE
-    var advanceTask = function(task) {
+    var advanceTask = function (task) {
         var modified = task.innerText.trim()
         for (var i = 0; i < listo.length; i++) {
             if (listo[i].task === modified) {
@@ -16,16 +16,17 @@ $(document).ready(function() {
         }
         task.remove();
     };
+
     $('#newTaskForm').hide();
 
 
     var listo = [];
-    var Task = function(task) {
+    var Task = function (task) {
         this.task = task;
         this.id = "new";
     }
-    var addTask = function(task) {
-        if(task) {
+    var addTask = function (task) {
+        if (task) {
             task = new Task(task);
             listo.push(task);
 
@@ -34,7 +35,7 @@ $(document).ready(function() {
             $('#newList').append(
                 '<a href="#finish" class="" id="item">' +
                 '<li class="list-group-item">' +
-                '<h3>' + task.task + '</h3>'+
+                '<h3>' + task.task + '</h3>' +
                 '<span class="arrow pull-right">' +
                 '<i class="glyphicon glyphicon-arrow-right">' +
                 '</span>' +
@@ -43,32 +44,37 @@ $(document).ready(function() {
             );
 
         }
+        $('#newTaskForm,  #newListItem').slideToggle('fast', 'linear');
 
     };
+
     $('#saveNewItem').on('click', function (e) {
         e.preventDefault();
         var task = $('#newItemInput').val().trim();
         addTask(task);
     });
-//Opens form
-    $('#newListItem').on('click', function () {
-        $('#newTaskForm,  #newListItem').fadeToggle('slow', 'linear');
-    });
-    //closes form
+
     $('#cancel').on('click', function (e) {
         e.preventDefault();
-        $('#newTaskForm,  #newListItem').fadeToggle('slow', 'linear');
+        $('#newTaskForm').slideToggle('fast', 'linear');
     });
-    $(document).on('click', '#item', function(e) {
+
+    $('#add-todo').on('click', function () {
+        $('#newTaskForm').slideToggle('fast', 'linear');
+    });
+
+
+    $(document).on('click', '#item', function (e) {
         e.preventDefault();
     });
-    $(document).on('click', '#item', function(e) {
+
+    $(document).on('click', '#item', function (e) {
         e.preventDefault();
         var task = this;
         advanceTask(task);
         this.id = 'inProgress';
     });
-    $(document).on('click', '#item', function(e) {
+    $(document).on('click', '#item', function (e) {
         e.preventDefault();
         var task = this;
         advanceTask(task);
@@ -88,11 +94,5 @@ $(document).ready(function() {
         var task = this;
         advanceTask(task);
     });
-// var listoSave = [ { id: 4, setting: 2 }, [ id:3, setting:1 ] };
-
-// $("#myitem").data("savelist", listoSave);
-
-
-
 
 });

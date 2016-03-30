@@ -3,36 +3,33 @@
 Listo with jQuery
 =================
 
-##Objective
+#Objective
 
 Create an interactive "to-do" list with jQuery
 
-
 With this to-do app, users will be able to:
 
-* Create new list items.
+* Create new todo items.
 
 * Move the items from 'New' to 'In Progress' to 'Archived' to deleted
 * Save list items to our browser's local storage so that it persists, even if we close the browser
 
+
 ##Step 1
+
 ###Our Environment
 
-We are going to be setting up the environment from scratch so that we can get used to building our projects from the ground up. 
-
-First, fork and clone this repo, so that we can access this README during our development. For the sake of simplicity, we have created the index.html file. So, no need to change it yet. 
+First, fork and clone this repo, so that we can access this README during our development. For the sake of simplicity, we have created the index.html file and added some markup for the ui. So, no need to change it yet.
 
 Now, let's create a folder called 'app.' This is where we will store the guts of our app. Inside the app folder let's make a folder called 'scripts.' This is where we will store all our Javascript. 
 
-Inside the js folder we will create our main Javascript named 'app.js'. 
-
-Then, inside the app folder we will create a folder called 'styles', this is where we will store our CSS files. Inside the 'styles' folder let's make a file called 'main.css' so that we have a place to style our markup. 
+Inside the js folder we will create our main Javascript named 'scripts.js'.
 
 Now that we've made our basic files, we want to get them all hooked together in our index.html file. 
 
 *Remember: a lot of times errors in the beginning of a project are because the files are not properly linked. 
 
-*Remember: your browser will read your index.html from top-to-bottom, left-to-right. This means if you put your jQuery under your app.js file you will end up with an error.*
+*Remember: your browser will read your index.html from top-to-bottom, left-to-right. This means if you put your jQuery under your scripts.js file you will end up with an error.*
 
 
 #Step 2
@@ -40,9 +37,9 @@ Now that we've made our basic files, we want to get them all hooked together in 
 
 Now that we have our environment set up and our markup written, it's time to get use some jQuery. 
 
-The first thing we want to do is go into our app.js file and create our document ready function:
+The first thing we want to do is go into our scripts.js file and create our document ready function:
 
-*app.js*
+*scripts.js*
 
 ```javascript
 
@@ -52,13 +49,13 @@ $(document).ready(function() {
 
 ```
 
-This allows us to initialize our jQuery code when the document loads. It might look a bit weird, but it's what we do when we're working with jQuery. Remember, all of the code in our app.js will go within the curly braces of the above function. 
+This allows us to initialize our jQuery code when the document loads. It might look a bit weird, but it's what we do when we're working with jQuery. Remember, all of the code in our scripts.js will go within the curly braces of the above function.
 
 ###Basic Architecture
 
 We are going to be creating a todo list. So the easiest way to store a list of things is to create an array!
 
-*app.js*
+*scripts.js*
 ```javascript
 var listo = [];
 ```
@@ -67,7 +64,7 @@ Listo will be our main array for storing tasks.
 
 Now, we don't want to just store strings. Instead, we will store Task objects into our array. Because our users are going to be making a lot of Tasks we should perhaps streamline the object creating process with a **constructor**
 
-*app.js*	
+*scripts.js*
 ```javascript
 var Task = function(task) {
 	this.task = task;
@@ -102,7 +99,7 @@ When we enter something into the input field and hit save, we want to create an 
 
 Let's make a function to do that for us. 
 
-*app.js*
+*scripts.js*
 
 ```javascript
 var addTask = function(task) {};
@@ -112,7 +109,7 @@ We don't want people to be able to create blank
 
 todo tasks, that would be a little frustrating. Let's put a conditional in the function so that it only runs if our task is there.
 
-*app.js*
+*scripts.js*
 ```javascript
 var addTask = function(task) {
 	if(task) {
@@ -124,7 +121,7 @@ Now our code will only run if 'task' is "truthy." Empty tasks are not truthy sin
 
 Next, we want to call our task constructor and fill it with the new task, then we will push the new task to listo, and save it.
 
-*app.js*
+*scripts.js*
 ```javascript
 var addTask = function(task) {
 	if(task) {
@@ -136,7 +133,7 @@ var addTask = function(task) {
 
 There are a few things we should add to this function to make it work correctly. First, we want the input form to clear after we submit it, which currently isn't happening. Then we want to make it so we can show our new list item in our index.html.
 
-*app.js*
+*scripts.js*
 
 ```javascript
 var addTask = function(task) {
@@ -145,7 +142,16 @@ var addTask = function(task) {
 		listo.push(task);
 
 		$('#newItemInput').val('');
-		$('#newList').append('<a href="#" class="" id="item"><li class="list-group-item">' + task.task + '<span class="arrow pull-right"><i class="glyphicon glyphicon-arrow-right"></span></li></a>');
+		  $('#newList').append(
+                        '<a href="#finish" class="" id="item">' +
+                        '<li class="list-group-item">' +
+                        '<h3>' + task.task + '</h3>'+
+                        '<span class="arrow pull-right">' +
+                        '<i class="glyphicon glyphicon-arrow-right">' +
+                        '</span>' +
+                        '</li>' +
+                        '</a>'
+                    );
 
 	}
 };
@@ -156,14 +162,14 @@ Let's also create a way to toggle our form so we can see how jQuery affects our 
 
 First, we should make it so that our newTaskForm is hidden when the document loads. Let's put this near the top of our document so that it loads correctly.
 
-*app.js*
+*scripts.js*
 ```javascript
 	$('#newTaskForm').hide();
 ```
 
 Then, let's add the fade toggle so that our New button will hide and show the input form at the same time.
 
-*app.js*
+*scripts.js*
 ```javascript
 var addTask = function(task) {
 	if(task) {
@@ -172,34 +178,26 @@ var addTask = function(task) {
 
 		$('#newItemInput').val('');
 
-		$('#newList').append('<a href="#finish" class="" id="item"><li class="list-group-item">' + task.task + '<span class="arrow pull-right"><i class="glyphicon glyphicon-arrow-right"></span></li></a>');
+		 $('#newList').append(
+                        '<a href="#finish" class="" id="item">' +
+                        '<li class="list-group-item">' +
+                        '<h3>' + task.task + '</h3>' +
+                        '<span class="arrow pull-right">' +
+                        '<i class="glyphicon glyphicon-arrow-right">' +
+                        '</span>' +
+                        '</li>' +
+                        '</a>'
+                    );
 
 	}
-	$('#newTaskForm,  #newListItem').fadeToggle('fast', 'linear');
+	 $('#newTaskForm).slideToggle('fast', 'linear');
 
 };
 ```
 
-We added a new ID here called `newListItem`. We will need to attach that to a button in the index.html file so that we can toggle the form.
-
-*index.html*
-```html
-<div class='new-item-header'>
-	<button href="#" class="pull-right pencil" id="newListItem" style="">New</button>
-</div>
-```
-Let's also create a div underneath all of that with the id of `newList` so that our addTask function can append the new items into the DOM. 
-
-*index.html*
-```html
-	<div id="newList">
-		New List
-	</div>
-```
-
 We will now call a jQuery event that calls the addTask function when we click the saveNewItem button. 
 
-*app.js*
+*scripts.js*
 ```javascript
 $('#saveNewItem').on('click', function (e) {
     e.preventDefault();
@@ -210,21 +208,22 @@ $('#saveNewItem').on('click', function (e) {
 
 Finally, let's make it so that we can open and close the new task form with the newListItem and Cancel button. 
 
-*app.js*
+*scripts.js*
 ```javascript
 //Opens form
   $('#newListItem').on('click', function () {
-      $('#newTaskForm,  #newListItem').fadeToggle('fast', 'linear');
+      $('#newTaskForm).fadeToggle('fast', 'linear');
   });
   //closes form
   $('#cancel').on('click', function (e) {
       e.preventDefault();
-      $('#newTaskForm,  #newListItem').fadeToggle('fast', 'linear');
+      $('#newTaskForm).fadeToggle('fast', 'linear');
   });
 ```
 
 
-##Step 3 
+##Step 3
+
 ###Task Progression HTML
 
 Before we make it possible to move our tasks from in progress to archived, we want create a space for them to exist in our HTML. We will do this in a very minimalist way in order to get things in a way they make sense.
@@ -235,32 +234,26 @@ Underneath our existing HTML in our index.html we should do this:
 
 *index.html*
 ```html
-<div class="panel">
+<div class="progress-box">
   In Progress
   <ul class="list-group" id="currentList"></ul>
 </div>
-<div class="panel">
+<div class="progress-box">
   Archived
   <ul class="list-group" id="archivedList"></ul>
 </div>
 ```
 
-Let's also go into our CSS file and create a `panel` class
+The css is already done for the progress-box class
 
-*main.css*
-```css
-.panel {
-	display: inline-block;
-	width: 33%;
-}
-```
+
 
 ##Step 4
 ###Starting, Finishing, and Deleting Tasks
 
 We need to include this function in our code. We will refer to this function in a minute, so for now, just include the function at the top of your app.
 
-*app.js*
+*scripts.js*
 ```javascript
 var advanceTask = function(task) {
   var modified = task.innerText.trim()
@@ -286,7 +279,7 @@ If you remember, when we created our task constructor we took in the argument fo
 
 First let's make a function that allows us to change the status of an item from 'new' to 'inProgress'. 
 
-*app.js*
+*scripts.js*
 ```javascript
 $(document).on('click', '#item', function(e) {
 	e.preventDefault();
@@ -307,7 +300,7 @@ Now let's set a variable called task so that we can access the 'this' keyword to
 
 We are also going to change it's ID to the string 'inProgress'. 
 
-*app.js*
+*scripts.js*
 ```javascript
 $(document).on('click', '#item', function(e) {
 	e.preventDefault();
@@ -319,7 +312,7 @@ $(document).on('click', '#item', function(e) {
 
 The last thing this function needs is the ability to move the actual list item. We do that by pulling all of the html around the item itself.
 
-*app.js*
+*scripts.js*
 ```javascript
 $(document).on('click', '#item', function(e) {
 	e.preventDefault();
@@ -332,7 +325,7 @@ $(document).on('click', '#item', function(e) {
 
 We can also move the items from 'inProgress' to 'archived' with a similar function: 
 
-*app.js*
+*scripts.js*
 ```javascript
 $(document).on('click', '#inProgress', function (e) {
   e.preventDefault();
@@ -346,7 +339,7 @@ $(document).on('click', '#inProgress', function (e) {
 
 Finally, in a similar fashion we want to create a way to delete the items on the list. All we have to do is pass a task into the advanceTask function without a new id. You can study the advanceTask function we built to understand how it works.
 
-*app.js*
+*scripts.js*
 ```javascript
 $(document).on('click', '#archived', function (e) {
   e.preventDefault();
