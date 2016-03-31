@@ -158,8 +158,6 @@ var addTask = function(task) {
 ```
 
 
-Let's also create a way to toggle our form so we can see how jQuery affects our app's design.
-
 First, we should make it so that our newTaskForm is hidden when the document loads. Let's put this near the top of our document so that it loads correctly.
 
 *scripts.js*
@@ -230,17 +228,21 @@ Before we make it possible to move our tasks from in progress to archived, we wa
 
 All we really need to do is create divs with ULs within them that contain the IDs our jQuery will look for. Or in other words, let's make some hooks for our jQuery to find and manipulate! 
 
-Underneath our existing HTML in our index.html we should do this:
+Inside the todo-main-container add this html markup:
 
 *index.html*
-```html
+```
+
 <div class="progress-box">
-  In Progress
-  <ul class="list-group" id="currentList"></ul>
+<h3>In Progress</h3>
+<ul class="list-group" id="currentList"></ul>
 </div>
+<div>
+</div>
+
 <div class="progress-box">
-  Archived
-  <ul class="list-group" id="archivedList"></ul>
+<h3>Complete</h3>
+<ul class="list-group" id="archivedList"></ul>
 </div>
 ```
 
