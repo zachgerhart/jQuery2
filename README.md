@@ -209,7 +209,7 @@ Finally, let's make it so that we can open and close the new task form with the 
 *scripts.js*
 ```javascript
 //Opens form
-  $('#newListItem').on('click', function () {
+  $('#add-todo').on('click', function () {
       $('#newTaskForm).fadeToggle('fast', 'linear');
   });
   //closes form
