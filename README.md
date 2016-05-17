@@ -14,6 +14,8 @@ With this to-do app, users will be able to:
 * Move the items from 'New' to 'In Progress' to 'Archived' to deleted
 * Save list items to our browser's local storage so that it persists, even if we close the browser
 
+![alt text](https://github.com/DevMountain/jQuery2/blob/master/jQuery2%20Example.png?raw=true, "Title Text")
+
 
 ##Step 1
 
