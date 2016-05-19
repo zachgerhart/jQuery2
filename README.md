@@ -97,6 +97,15 @@ This will create a form with a save and cancel button. We want to give the save 
 
 You will come to see that most elements in our html will have an ID. That is so that jQuery has a lot of hooks to make contact with what it is looking to manipulate.
 
+One more thing we should do is add a script tag at the bottom of our page that will load our jQuery into the index.html page for us.
+
+*index.html*
+```html
+<script
+src="./app/scripts/scripts.js">
+</script>
+```
+
 ###Making our addTask function
 
 When we enter something into the input field and hit save, we want to create an object and push it to our array.
